@@ -188,6 +188,15 @@
                 <button class="btn btn-primary" type="submit">Tambah</button>
                 <button class="btn" onclick="add_ticket_modal.close()" type="reset">Batal</button>
             </div>
+            <div class="mt-4 border-t border-zinc-800 pt-4">
+                <label class="text-zinc-400 text-sm mb-2 block font-medium">Metode Pembayaran</label>
+                <select name="payment_type_id" required class="w-full bg-zinc-800 border-zinc-700 text-white rounded-lg p-3 outline-none focus:ring-2 focus:ring-indigo-500">
+                    <option value="" disabled selected>-- Pilih Pembayaran --</option>
+                    @foreach($paymentTypes as $type)
+                        <option value="{{ $type->id }}">{{ $type->nama_tipe_pembayaran }}</option>
+                    @endforeach
+                </select>
+            </div>
         </form>
     </dialog>
 

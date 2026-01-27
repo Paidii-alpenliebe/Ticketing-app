@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Models\Event;
 use App\Models\Kategori;
+use App\Models\PaymentType;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -62,6 +63,8 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         $categories = Kategori::all();
         $tickets = $event->tikets;
+        $paymentTypes = PaymentType::all();
+        return view('events.show', compact('event', 'paymentTypes'));
 
         return view('admin.event.show', compact('event', 'categories', 'tickets'));
     }

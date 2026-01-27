@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\PaymentType; // 1. WAJIB Import Model ini
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -12,6 +13,8 @@ class EventController extends Controller
     {
         $event->load(['tikets', 'kategori', 'user']);
 
-        return view('events.show', compact('event'));
+        $paymentTypes = PaymentType::all();
+
+        return view('events.show', compact('event', 'paymentTypes'));
     }
 }

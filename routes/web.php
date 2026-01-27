@@ -49,7 +49,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/histories/{id}', [HistoriesController::class, 'show'])->name('histories.show');
 
         // Payment Type Management
-        Route::resource('payment-types', PaymentTypeController::class);
+        Route::resource('/payment-types', PaymentTypeController::class);
         });
     });
 

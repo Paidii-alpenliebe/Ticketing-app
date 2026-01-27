@@ -17,9 +17,19 @@ class Order extends Model
     protected $fillable = [
         'user_id',
         'event_id',
+        'payment_type_id', // Tambahkan ini agar bisa disimpan ke database
         'order_date',
         'total_harga',
     ];
+
+    /**
+     * Relasi ke Tipe Pembayaran (PENTING untuk Fix Error)
+     */
+    public function paymentType()
+    {
+        // Menghubungkan kolom payment_type_id ke model PaymentType
+        return $this->belongsTo(PaymentType::class, 'payment_type_id');
+    }
 
     public function user()
     {
